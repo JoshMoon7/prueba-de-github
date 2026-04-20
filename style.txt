@@ -1,70 +1,302 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentalCare | Tu Sonrisa en Buenas Manos</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00a8cc;
+            --secondary: #005073;
+            --accent: #ffbc00;
+            --light: #f4f9f9;
+            --dark: #333;
+            --white: #ffffff;
+        }
 
-/* Body */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #c3ec52, #0ba360);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* Contenedor */
-.container {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            scroll-behavior: smooth;
+        }
 
-/* Header */
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
+        /* Navegación */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-header p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* Main */
-main p {
-    margin: 20px 0;
-    font-size: 1.2em;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-.icon {
-    width: 80px;
-    margin-bottom: 20px;
-}
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: 0.3s;
+        }
 
-button {
-    padding: 12px 25px;
-    font-size: 1em;
-    background-color: #ffbb33;
-    color: #333;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        nav ul li a:hover {
+            color: var(--primary);
+        }
 
-button:hover {
-    background-color: #ffdd66;
-}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 168, 204, 0.7), rgba(0, 80, 115, 0.8)), 
+                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
 
-/* Footer */
-footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #eee;
-}
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background-color: var(--accent);
+            color: var(--secondary);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 188, 0, 0.4);
+        }
+
+        /* Servicios */
+        .services {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 5px solid var(--primary);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Contacto / Cita */
+        .appointment {
+            background: var(--white);
+            padding: 80px 10%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .appointment-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .appointment-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 50px 10% 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><span>🦷</span> DentalCare</div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#cita">Agendar Cita</a></li>
+            <li><a href="tel:+123456789" style="color: var(--primary);">📞 123 456 789</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <h1>Tu salud dental es nuestro compromiso</h1>
+        <p>Expertos en odontología estética y salud bucal avanzada con tecnología de última generación.</p>
+        <a href="#cita" class="btn">Agendar Primera Visita Gratis</a>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="section-title">
+            <h2>Nuestros Especialistas</h2>
+            <p>Brindamos soluciones integrales para toda la familia</p>
+        </div>
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Implantes Dentales</h3>
+                <p>Recupera la funcionalidad y estética de tu boca con materiales de alta calidad.</p>
+            </div>
+            <div class="service-card">
+                <h3>Ortodoncia Invisible</h3>
+                <p>Alinea tus dientes de forma discreta y cómoda con tecnología Invisalign.</p>
+            </div>
+            <div class="service-card">
+                <h3>Blanqueamiento Láser</h3>
+                <p>Una sonrisa más blanca y radiante en tan solo una sesión de 45 minutos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="appointment" id="cita">
+        <div class="appointment-info">
+            <h2>Agenda tu cita hoy mismo</h2>
+            <p>No dejes pasar más tiempo. Una revisión a tiempo puede ahorrarte molestias en el futuro.</p>
+            <br>
+            <p><strong>Horarios:</strong> Lunes a Viernes: 9:00 - 20:00 | Sábados: 9:00 - 14:00</p>
+            <p><strong>Ubicación:</strong> Av. Principal de la Salud, 123. Ciudad.</p>
+        </div>
+        <div class="appointment-form">
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <select>
+                        <option>Selecciona un servicio</option>
+                        <option>Limpieza Dental</option>
+                        <option>Ortodoncia</option>
+                        <option>Implantes</option>
+                        <option>Urgencia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date">
+                </div>
+                <button type="submit" class="submit-btn">Solicitar Cita</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <span>Instagram | Facebook | WhatsApp</span>
+        </div>
+        <p>&copy; 2026 DentalCare Clínica Odontológica. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
